@@ -234,6 +234,8 @@ def test_cifar_feature_source_coding_stress_saves_metrics(tmp_path, capsys) -> N
             "16",
             "--calibration-sample-counts",
             "4",
+            "--constrained-fixed-scenario",
+            "signed_tiled_mild",
             "--output-dir",
             str(tmp_path / "out"),
         ]
@@ -244,6 +246,7 @@ def test_cifar_feature_source_coding_stress_saves_metrics(tmp_path, capsys) -> N
     artifact_dir = tmp_path / "out" / "cifar_feature_source_coding_stress"
     assert payload["rows"] == 192
     assert payload["summary_rows"] == 24
+    assert payload["config"]["constrained_scenario"]["name"] == "signed_tiled_mild"
     assert 0.0 <= payload["calibrated_accuracy_min"] <= payload["calibrated_accuracy_max"] <= 1.0
     assert (artifact_dir / "cifar_feature_source_coding_stress_rows.csv").exists()
     assert (artifact_dir / "cifar_feature_source_coding_stress_summary.csv").exists()
