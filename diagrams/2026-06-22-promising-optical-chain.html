@@ -1,0 +1,207 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Most Promising Simulated Optical Chain</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f8fafc;
+    --fg: #172033;
+    --muted: #5b6475;
+    --line: #64748b;
+    --neutral: #e2e8f0;
+    --input: #bfdbfe;
+    --process: #c7d2fe;
+    --storage: #99f6e4;
+    --external: #fde68a;
+    --risk: #fecaca;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #a3adbd;
+      --line: #94a3b8;
+      --neutral: #334155;
+      --input: #1d4ed8;
+      --process: #4338ca;
+      --storage: #0f766e;
+      --external: #92400e;
+      --risk: #991b1b;
+    }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 14px/1.4 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  main {
+    max-width: 1180px;
+    margin: 32px auto;
+    padding: 0 20px;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .title {
+    font-size: 22px;
+    font-weight: 650;
+    fill: var(--fg);
+  }
+  .section {
+    font-size: 13px;
+    font-weight: 700;
+    fill: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .label {
+    font-size: 14px;
+    font-weight: 650;
+    fill: var(--fg);
+  }
+  .small {
+    font-size: 12px;
+    fill: var(--muted);
+  }
+  .tiny {
+    font-size: 11px;
+    fill: var(--muted);
+  }
+  .node {
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .neutral {
+    fill: var(--neutral);
+  }
+  .input {
+    fill: var(--input);
+  }
+  .process {
+    fill: var(--process);
+  }
+  .storage {
+    fill: var(--storage);
+  }
+  .external {
+    fill: var(--external);
+  }
+  .risk {
+    fill: var(--risk);
+  }
+  .edge {
+    stroke: var(--line);
+    stroke-width: 1.5;
+    fill: none;
+  }
+  .zone {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1;
+    stroke-dasharray: 6 5;
+    opacity: 0.85;
+  }
+  .callout {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+</style>
+<main>
+  <svg viewBox="0 0 1160 760" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="title">Most promising simulated optical inference chain</title>
+    <desc id="desc">Diagram of a trained reverse-saturable material MLP chain with severe fixed-fabrication transfer and calibration.</desc>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--line)" />
+      </marker>
+    </defs>
+
+    <text x="28" y="34" class="title">Most promising simulated path: trained reverse-saturable optical MLP chain</text>
+    <text x="28" y="58" class="small">Best current candidate: strength 0.2, trained for the chain objective, then calibrated under severe fixed-fabrication transfer.</text>
+
+    <rect x="38" y="104" width="162" height="82" rx="8" class="node input" />
+    <text x="62" y="132" class="label">Input / hidden state</text>
+    <text x="62" y="154" class="small">Fashion-MNIST proxy</text>
+    <text x="62" y="173" class="small">64-dim model state</text>
+
+    <rect x="242" y="104" width="158" height="82" rx="8" class="node neutral" />
+    <text x="266" y="132" class="label">Digital embed</text>
+    <text x="266" y="154" class="small">baseline front end</text>
+    <text x="266" y="173" class="small">ReLU residual stream</text>
+
+    <rect x="438" y="84" width="468" height="306" rx="10" class="zone" />
+    <text x="456" y="112" class="section">TRAINED OPTICAL MATERIAL CHAIN</text>
+
+    <rect x="466" y="138" width="130" height="86" rx="8" class="node process" />
+    <text x="486" y="165" class="label">Block 1</text>
+    <text x="486" y="187" class="small">MLP-up 64x256</text>
+    <text x="486" y="206" class="small">signed fixed optics</text>
+
+    <rect x="620" y="138" width="130" height="86" rx="8" class="node process" />
+    <text x="640" y="165" class="label">Block 2</text>
+    <text x="640" y="187" class="small">reverse saturable</text>
+    <text x="640" y="206" class="small">strength 0.2</text>
+
+    <rect x="774" y="138" width="104" height="86" rx="8" class="node process" />
+    <text x="794" y="165" class="label">Block 4</text>
+    <text x="794" y="187" class="small">same trained</text>
+    <text x="794" y="206" class="small">chain objective</text>
+
+    <rect x="504" y="258" width="324" height="82" rx="8" class="node storage" />
+    <text x="528" y="286" class="label">Per-block calibration</text>
+    <text x="528" y="308" class="small">512 samples fit affine gain/bias</text>
+    <text x="528" y="327" class="small">recovers severe constrained transfer</text>
+
+    <rect x="946" y="104" width="164" height="82" rx="8" class="node external" />
+    <text x="970" y="132" class="label">ADC/DAC boundary</text>
+    <text x="970" y="154" class="small">paid once per chain</text>
+    <text x="970" y="173" class="small">not per tiny block</text>
+
+    <rect x="946" y="232" width="164" height="82" rx="8" class="node neutral" />
+    <text x="970" y="260" class="label">Digital tail</text>
+    <text x="970" y="282" class="small">classification head</text>
+    <text x="970" y="301" class="small">software-visible logits</text>
+
+    <path d="M 200 145 H 242" class="edge" marker-end="url(#arrow)" />
+    <path d="M 400 145 H 466" class="edge" marker-end="url(#arrow)" />
+    <path d="M 596 181 H 620" class="edge" marker-end="url(#arrow)" />
+    <path d="M 750 181 H 774" class="edge" marker-end="url(#arrow)" />
+    <path d="M 878 181 H 946" class="edge" marker-end="url(#arrow)" />
+    <path d="M 1028 186 V 232" class="edge" marker-end="url(#arrow)" />
+    <path d="M 666 258 V 225" class="edge" marker-end="url(#arrow)" />
+    <path d="M 666 258 C 625 235 574 230 531 224" class="edge" marker-end="url(#arrow)" />
+    <path d="M 666 258 C 710 235 774 230 826 224" class="edge" marker-end="url(#arrow)" />
+
+    <rect x="62" y="442" width="312" height="202" rx="8" class="callout" />
+    <text x="84" y="472" class="label">Functional accuracy result</text>
+    <text x="84" y="500" class="small">2-block trained chain: 86.26%</text>
+    <text x="84" y="522" class="small">2-block calibrated severe: 86.14%</text>
+    <text x="84" y="552" class="small">4-block trained chain: 85.64%</text>
+    <text x="84" y="574" class="small">4-block calibrated severe: 84.88%</text>
+    <text x="84" y="608" class="tiny">Naive repetition collapsed; chain-aware training rescued it.</text>
+
+    <rect x="424" y="442" width="312" height="202" rx="8" class="callout" />
+    <text x="446" y="472" class="label">Energy / latency reason</text>
+    <text x="446" y="500" class="small">8-block low-I/O model: 0.28x energy</text>
+    <text x="446" y="522" class="small">8-block low-I/O model: 0.21x latency</text>
+    <text x="446" y="552" class="small">8-block tensor-core model: 0.23x energy</text>
+    <text x="446" y="574" class="small">8-block tensor-core model: 0.57x latency</text>
+    <text x="446" y="608" class="tiny">The chain earns its keep by amortizing converters.</text>
+
+    <rect x="786" y="442" width="312" height="202" rx="8" class="node risk" />
+    <text x="808" y="472" class="label">Remaining risk</text>
+    <text x="808" y="500" class="small">Shared weights only so far</text>
+    <text x="808" y="522" class="small">Down-projection still simplified</text>
+    <text x="808" y="552" class="small">CCD readout was too slow for fast path</text>
+    <text x="808" y="574" class="small">Full transformer block still untested</text>
+    <text x="808" y="608" class="tiny">Next: unshared per-block weights.</text>
+
+    <rect x="318" y="676" width="528" height="58" rx="8" class="node external" />
+    <text x="342" y="701" class="label">Practical target: trained 2-4 block optical chain before ADC</text>
+    <text x="342" y="721" class="small">reverse-saturable material activation, calibrated fixed transfer</text>
+  </svg>
+</main>

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software or its research notes, cite the repository and the primary sources relevant to your hardware or modeling claims."
+title: "Photonic Inference Lab"
+type: software
+authors:
+  - name: "Photonic Inference Lab contributors"
+abstract: "Research simulation code and notes for stress-testing optical-style neural-network projection blocks under quantization, fabrication error, detector noise, drift, calibration limits, converter costs, and source-coding constraints."
+keywords:
+  - photonic computing
+  - optical inference
+  - neural networks
+  - calibration
+  - source coding
+  - simulation
+license: MIT
