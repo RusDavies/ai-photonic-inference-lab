@@ -56,6 +56,7 @@ from optical_spike.energy_budget import (
     run_energy_budget,
     run_unshared_four_block_stress_report,
 )
+from optical_spike.fabrication_constraints import DEFAULT_CONSTRAINED_FIXED_SCENARIOS
 from optical_spike.fixed import FixedSweepConfig, run_fixed_error_sweeps
 from optical_spike.material_nonlinearity import (
     MaterialNonlinearityConfig,
@@ -113,6 +114,16 @@ def source_coding_chain_length(chain_lengths_arg: str) -> int:
 
 
 DEFAULT_OUTPUT_DIR = Path("artifacts/spike")
+
+
+def parse_constrained_fixed_scenario(name: str):
+    for scenario in DEFAULT_CONSTRAINED_FIXED_SCENARIOS:
+        if scenario.name == name:
+            return scenario
+    valid = ", ".join(scenario.name for scenario in DEFAULT_CONSTRAINED_FIXED_SCENARIOS)
+    raise argparse.ArgumentTypeError(
+        f"unknown constrained scenario {name!r}; choose one of: {valid}"
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -344,6 +355,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--quantization-bits", default="8,6,4,3,2")
     parser.add_argument("--calibration-samples", default=128, type=int)
     parser.add_argument("--calibration-sample-counts", default="32,128,512,2048")
+    parser.add_argument(
+        "--constrained-fixed-scenario",
+        default="signed_tiled_severe",
+        type=parse_constrained_fixed_scenario,
+        help=(
+            "Named constrained fixed-fabrication projection scenario for CIFAR feature "
+            "source-coding stress."
+        ),
+    )
     parser.add_argument("--recalibration-intervals", default="1,4,16")
     parser.add_argument(
         "--source-coding-projection-mse-threshold",
@@ -692,6 +712,7 @@ def main(argv: list[str] | None = None) -> int:
                 ),
                 output_dir=args.output_dir / "cifar_feature_source_coding_stress",
                 calibration_sample_counts=parse_int_tuple(args.calibration_sample_counts),
+                constrained_scenario=args.constrained_fixed_scenario,
                 source_codings=(
                     REDUNDANT_6BIT_SOURCE_CODING,
                     DIRECT_7BIT_SOURCE_CODING,
