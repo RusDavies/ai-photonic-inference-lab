@@ -34,6 +34,15 @@ The first and third gates are mostly runnable with the current CLI. The harder
 workload gate and clean ablation gate need code exposure before the manuscript
 can honestly claim they were tested.
 
+Status 2026-10-02:
+
+Gate B has partial diagnostic evidence, not a full pass. The project now has a
+CIFAR-10 loader, a bounded spatial-feature target, and a stress matrix across
+mild, moderate, and severe signed-tiled projection assumptions. Mild/moderate
+preserve the bounded target after calibration; severe remains a failure
+boundary. This is enough to avoid saying the project is Fashion-MNIST-only in
+the codebase, but not enough to claim broad harder-workload success.
+
 ## Gate A: Expanded Seed Robustness
 
 Question:
@@ -86,18 +95,21 @@ features than Fashion-MNIST?
 
 Current code status:
 
-The current data path is Fashion-MNIST only. `src/optical_spike/data.py` has no
-alternate real-dataset loader, and the CLI does not expose a `--dataset` option.
+The original 2026-08-10 blocker has been cleared. The data path now supports
+CIFAR-10, and the CLI exposes dataset selection for the relevant baseline and
+CIFAR feature-target paths. The remaining blocker is claim quality: the current
+bounded CIFAR target is deterministic and spatial-feature based, not a modern
+learned vision classifier.
 
 Minimum implementation:
 
-- add a dataset abstraction that keeps Fashion-MNIST behavior unchanged;
-- add one harder small image workload suitable for a NumPy runner, preferably
-  CIFAR-10 grayscale/downsampled or a similarly accessible benchmark;
-- expose the workload through CLI/config fields;
-- add synthetic smoke tests so CI does not depend on downloads;
-- document the exact workload transformation and why it is harder than
-  Fashion-MNIST.
+- keep the CIFAR-10 dataset path and Fashion-MNIST behavior covered by tests;
+- document the exact bounded workload transformation and why it is harder than
+  Fashion-MNIST but still narrow;
+- classify each CIFAR result as positive, negative, or diagnostic before using
+  it in manuscript positioning;
+- add a stronger CIFAR target if the manuscript needs more than a bounded
+  architecture diagnostic.
 
 Candidate command shape after implementation:
 
@@ -126,11 +138,17 @@ If it fails:
   benchmark, or treat the failure as a central limitation;
 - do not claim task-general photonic inference scaling.
 
-Claim unlocked if it passes:
+Claim unlocked by the current bounded evidence:
 
-The architecture is not merely tuned to the current Fashion-MNIST transfer
-benchmark, though the paper should still avoid frontier-model or broad vision
-claims.
+Mild and moderate signed-tiled projection assumptions preserve a bounded
+CIFAR-10 spatial-feature target after calibration. Severe signed-tiled
+projection remains a failure boundary.
+
+Claim not unlocked yet:
+
+The architecture is not yet shown to generalize beyond a controlled
+Fashion-MNIST result plus a bounded CIFAR diagnostic. The paper should still
+avoid frontier-model, broad vision, or modern CIFAR-classifier claims.
 
 ## Gate C: 10-Epoch Calibration-Sample Sensitivity
 
@@ -258,7 +276,13 @@ If Gates A, C, and D pass, but B fails or is deliberately scoped out:
 Draft as a controlled-transfer limits paper. Put the Fashion-MNIST boundary in
 the abstract/methods, not as a sheepish limitation at the end.
 
-If all four gates pass:
+If Gate B remains at the current bounded-CIFAR diagnostic level:
+
+Draft as a controlled-transfer limits paper with a bounded CIFAR diagnostic
+section. Put the Fashion-MNIST primary-scope boundary and the CIFAR
+mild/moderate-only architecture assumption in the abstract/methods.
+
+If all four gates pass with a stronger CIFAR target:
 
 Draft as a stronger simulation and co-design paper, while still avoiding any
 physical-hardware demonstration claim.

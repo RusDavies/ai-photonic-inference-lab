@@ -141,6 +141,17 @@ by device taxonomy alone:
 The source log already contains useful seeds for these buckets, but it needs a
 paper-specific pass before any manuscript outline should cite it as complete.
 
+## CIFAR-10 Result Classification
+
+Status 2026-10-02:
+
+| Result | Classification | Manuscript use |
+| --- | --- | --- |
+| Dense flattened-pixel and MLP-up CIFAR targets | Negative target-selection result | Use only to explain why a stronger target was needed. |
+| CIFAR spatial-feature target | Diagnostic target improvement | Use as a bounded harder-workload target, not as modern CIFAR-10 performance. |
+| Mild/moderate signed-tiled CIFAR stress matrix | Positive bounded architecture diagnostic | Use only under the explicit mild/moderate architecture envelope. |
+| Severe signed-tiled CIFAR stress matrix | Negative/failure-boundary result | Use as a stress boundary, not as harder-workload success. |
+
 ## Claims To Make
 
 - Chaining optical blocks changes the energy/latency trade because converter
@@ -157,6 +168,9 @@ paper-specific pass before any manuscript outline should cite it as complete.
 - Device-stability assumptions must be mapped into physical drift, resonance,
   photon/SNR, readout, and recalibration quantities before hardware claims are
   credible.
+- The bounded CIFAR-10 spatial-feature target is useful as a harder-workload
+  diagnostic: mild/moderate signed-tiled projection assumptions survive after
+  calibration, while the severe branch is a failure boundary.
 
 ## Claims Not To Make Yet
 
@@ -165,7 +179,10 @@ paper-specific pass before any manuscript outline should cite it as complete.
 - Do not claim frontier-model inference economics.
 - Do not claim the DAC problem is solved.
 - Do not claim passive open-loop optical inference is plausible.
-- Do not claim the Fashion-MNIST result transfers without another workload.
+- Do not claim broad transfer beyond Fashion-MNIST. The CIFAR-10 evidence is a
+  bounded spatial-feature diagnostic, not a general vision result.
+- Do not claim CIFAR-10 harder-workload success under the severe signed-tiled
+  projection branch.
 - Do not report energy/latency numbers without clearly marking modeled
   assumptions and converter-placement conditions.
 
@@ -178,7 +195,10 @@ Minimum next work before drafting the paper as if it were real:
 - Expand the seed count beyond `7,11,13` or justify why the paper is a methods
   demonstration rather than a robustness claim.
 - Add at least one harder workload or a deliberately scoped argument for why
-  Fashion-MNIST is only a controlled transfer benchmark.
+  Fashion-MNIST is only a controlled transfer benchmark. Status 2026-10-02:
+  bounded CIFAR-10 spatial-feature evidence exists, but it supports only a
+  narrow mild/moderate architecture diagnostic unless a stronger CIFAR target
+  or a deliberately narrow manuscript claim is chosen.
 - Run ablations that isolate source coding, drift/noise, recalibration policy,
   readout noise, and training margin.
 - Convert the source log into a paper-specific related-work matrix with access

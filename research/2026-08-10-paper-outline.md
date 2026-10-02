@@ -30,9 +30,12 @@ chain under selected converter placements, while stronger training clears a
 strict no-below-85% accuracy floor across the 3-seed, 10-epoch source-coding
 stress confirmation. The results suggest that photonic inference scaling is
 most plausible as longer optical or analog compute islands, not as isolated
-optical layers. They also show that the DAC/source chain and physical
-stabilization assumptions remain the dominant risks. The contribution is a
-limits-and-co-design analysis, not a physical hardware demonstration.
+optical layers. A bounded CIFAR-10 spatial-feature diagnostic further shows
+that mild/moderate signed-tiled projection assumptions can preserve a harder
+target after calibration, while the severe branch remains a failure boundary.
+The results also show that the DAC/source chain and physical stabilization
+assumptions remain the dominant risks. The contribution is a limits-and-
+co-design analysis, not a physical hardware demonstration.
 
 ## Intended Contribution
 
@@ -260,6 +263,8 @@ Claims to emphasize:
 - converter placement is an architecture decision, not an implementation detail;
 - calibration and hardware-aware training are part of the model, not cleanup;
 - stabilized device assumptions are required for MRR-style implementations;
+- bounded CIFAR-10 evidence is useful as a diagnostic, but only under
+  mild/moderate architecture assumptions;
 - the converter wall remains the main risk.
 
 Claims to avoid:
@@ -267,13 +272,17 @@ Claims to avoid:
 - no hardware demonstration;
 - no general vision-language or frontier-model inference claim;
 - no claim that the DAC/source-chain target has a demonstrated component;
-- no claim that Fashion-MNIST proves task-general scaling.
+- no claim that Fashion-MNIST or the bounded CIFAR-10 spatial-feature target
+  proves task-general scaling;
+- no CIFAR-10 success claim under severe signed-tiled projection.
 
 ### 9. Limitations
 
 Known limitations:
 
-- controlled Fashion-MNIST benchmark only;
+- controlled Fashion-MNIST benchmark remains the primary evidence track;
+- CIFAR-10 evidence is bounded to a spatial-feature target and mild/moderate
+  architecture assumptions;
 - seed set limited to `7,11,13`;
 - no physical measurement;
 - device bridge relies on sourced anchors and assumptions, not local hardware;
@@ -312,7 +321,8 @@ deployable photonic accelerator.
 
 - Build the claim-to-evidence ledger.
 - Convert the source log into a paper-specific related-work matrix.
-- Add or justify a harder-workload check.
+- Preserve the bounded CIFAR-10 diagnostic classification unless a stronger
+  CIFAR target is added.
 - Run ablations for source coding, drift/noise, readout, recalibration, and
   training margin.
 - Decide the target venue family before writing introduction prose.
