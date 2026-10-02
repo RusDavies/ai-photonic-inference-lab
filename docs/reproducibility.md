@@ -3,6 +3,10 @@
 This guide collects the public command recipes for reproducing smoke tests and
 key experiment families in Photonic Inference Lab.
 
+For manuscript-facing checked/diagnostic status, artifact paths, assumptions,
+and pass/fail gates, see
+[Manuscript Reproducibility Appendix](manuscript-reproducibility-appendix.md).
+
 Commands assume an editable install from the repository root:
 
 ```bash

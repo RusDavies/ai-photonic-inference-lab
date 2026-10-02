@@ -67,6 +67,7 @@ dated artifact:
 - [Claim-to-evidence ledger](research/2026-08-10-claim-evidence-ledger.md)
 - [CIFAR-10 architecture assumption](research/2026-10-02-cifar-architecture-assumption.md)
 - [Reproducibility commands](docs/reproducibility.md)
+- [Manuscript reproducibility appendix](docs/manuscript-reproducibility-appendix.md)
 
 ## Install
 
