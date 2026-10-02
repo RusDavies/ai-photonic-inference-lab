@@ -173,9 +173,20 @@ Run the CIFAR-10 spatial feature source-coding stress check:
 .venv/bin/python -m optical_spike --run-cifar-feature-source-coding-stress --dataset cifar10 --epochs 30 --hidden-dim 256 --max-train-samples 10000 --max-test-samples 2000 --calibration-sample-counts 128
 ```
 
+Compare the architecture envelopes explicitly:
+
+```bash
+.venv/bin/python -m optical_spike --run-cifar-feature-source-coding-stress --dataset cifar10 --epochs 30 --hidden-dim 256 --max-train-samples 10000 --max-test-samples 2000 --calibration-sample-counts 128 --constrained-fixed-scenario signed_tiled_mild
+.venv/bin/python -m optical_spike --run-cifar-feature-source-coding-stress --dataset cifar10 --epochs 30 --hidden-dim 256 --max-train-samples 10000 --max-test-samples 2000 --calibration-sample-counts 128 --constrained-fixed-scenario signed_tiled_moderate
+.venv/bin/python -m optical_spike --run-cifar-feature-source-coding-stress --dataset cifar10 --epochs 30 --hidden-dim 256 --max-train-samples 10000 --max-test-samples 2000 --calibration-sample-counts 128 --constrained-fixed-scenario signed_tiled_severe
+```
+
 The CIFAR-10 path is exploratory. Treat its current results as diagnostic
 evidence for target selection and calibration stress, not as a finished
-positive benchmark.
+positive benchmark. Current positioning uses `signed_tiled_moderate` as the
+default paper-relevant CIFAR architecture assumption, `signed_tiled_mild` as an
+optimistic comparison, and `signed_tiled_severe` as a failure-boundary stress
+case.
 
 ## Data And Outputs
 

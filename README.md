@@ -9,7 +9,7 @@ The current implementation is a NumPy simulation scaffold. It is not hardware
 control software, not a product SDK, and not a claim that the modeled photonic
 architecture is ready to build. Its purpose is narrower and more useful:
 turn optimistic optical-inference ideas into runnable stress tests with clear
-failure modes.
+assumptions and failure modes.
 
 ## What Is Included
 
@@ -29,7 +29,10 @@ This repository is research-grade. The Fashion-MNIST path has the most complete
 evidence trail, including multi-seed stress tests, calibration sensitivity,
 source-coding analysis, and device-tolerance notes. The CIFAR-10 work is newer
 and more mixed: it has better routing and a stronger spatial-feature target,
-but it does not yet provide a manuscript-grade harder-workload success story.
+but it only supports a bounded architecture story. Mild and moderate
+signed/tiled projection assumptions preserve the target after calibration; the
+severe signed/tiled branch remains a stress/failure boundary, not a
+manuscript-grade success case.
 
 The main result so far is not a triumphant hardware claim. It is a limits-and-
 co-design picture: optical projection chains can look promising under selected
@@ -104,7 +107,9 @@ for device, converter, photonic, and calibration assumptions.
   product-source assumptions.
 - Several reports reference generated artifacts that may need to be regenerated
   locally rather than downloaded from the repository.
-- CIFAR-10 evidence is still exploratory and should not be oversold.
+- CIFAR-10 evidence is still exploratory and should not be oversold. Treat the
+  mild/moderate constrained branches as the plausible modeled architecture path
+  and the severe branch as a failure-boundary stress case.
 - The package API is not stable; the CLI and research scripts are the primary
   interface for now.
 
