@@ -103,6 +103,13 @@ better source/converter stack."
 
 ## Likely Venue Fit
 
+Decision update 2026-10-02:
+
+The selected target venue family is **applied photonic-computing systems venues
+that accept simulation-heavy architecture and co-design papers**. See
+[`research/2026-10-02-target-venue-family.md`](2026-10-02-target-venue-family.md)
+for scope, tone, experiment, and citation implications.
+
 Best-fit venues are probably architecture, photonics systems, or applied
 photonic-computing venues that accept simulation-heavy co-design work:
 
