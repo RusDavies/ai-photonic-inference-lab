@@ -40,6 +40,34 @@ conditions, but converter placement, source precision, calibration overhead,
 trained-target margin, and physical drift/noise assumptions dominate whether
 the idea survives contact with reality.
 
+## Research State At A Glance
+
+- Primary evidence track: controlled Fashion-MNIST simulation for chained
+  optical/material MLP-style blocks.
+- Strongest modeled architecture: an unshared 4-block optical chain with shared
+  converter boundaries and explicit calibration/source-coding assumptions.
+- Current system-level lesson: converter placement, source precision,
+  calibration, and stabilized device assumptions matter as much as the optical
+  multiply itself.
+- CIFAR-10 status: useful as a bounded spatial-feature diagnostic. Mild and
+  moderate signed/tiled projection envelopes preserve that bounded target after
+  calibration; the severe envelope is a failure boundary.
+- Manuscript posture: limits-and-co-design simulation paper, not hardware
+  demonstration and not a broad vision-model claim.
+
+This public repository contains the runnable simulation scaffold, public-safe
+research notes, reproducibility commands, and source references. Private project
+management, unpublished routing decisions, and non-public records are kept
+outside this repository.
+
+Start with these notes if you want the current argument without reading every
+dated artifact:
+
+- [Paper-track positioning](research/2026-08-10-paper-track-positioning.md)
+- [Claim-to-evidence ledger](research/2026-08-10-claim-evidence-ledger.md)
+- [CIFAR-10 architecture assumption](research/2026-10-02-cifar-architecture-assumption.md)
+- [Reproducibility commands](docs/reproducibility.md)
+
 ## Install
 
 Create an isolated environment and install the package in editable mode:
