@@ -10,6 +10,11 @@ inference claim.
 
 Access date for all entries: 2026-08-10.
 
+Draft BibTeX metadata lives in
+[`research/manuscript-primary-sources.bib`](manuscript-primary-sources.bib).
+The metadata note is
+[`research/2026-10-02-citation-metadata.md`](2026-10-02-citation-metadata.md).
+
 ## Source-Use Rules
 
 - Use primary papers, preprints, data sheets, or author-maintained datasets for
